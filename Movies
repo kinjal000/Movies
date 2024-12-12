@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Movie Facts</title>
+    <style>
+        .movie-facts-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .fact-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            background-color: #f8f8f8;
+        }
+
+        .fact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .fact-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .fact-detail {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="movie-facts-container"></div>
+
+    <script>
+        class MovieFactsDisplay {
+            constructor(data) {
+                this.facts = data.movieFacts;
+                this.container = document.querySelector('.movie-facts-container');
+            }
+
+            displayFacts() {
+                this.facts.forEach(fact => {
+                    const factCard = document.createElement('div');
+                    factCard.className = 'fact-card';
+                    
+                    factCard.innerHTML = `
+                        <div class="fact-title">${fact.fact}</div>
+                        <div class="fact-detail">${fact.detail}</div>
+                    `;
+                    
+                    this.container.appendChild(factCard);
+                });
+            }
+        }
+
+        // Movie facts data
+        const movieFactsData = {
+            "movieFacts": [
+                {
+                    "id": 1,
+                    "fact": "The Matrix Code Origin",
+                    "detail": "The famous green code in The Matrix was actually created from sushi recipes. The production designer scanned symbols from his wife's Japanese cookbooks."
+                },
+                {
+                    "id": 2,
+                    "fact": "Pixar's Hidden Number",
+                    "detail": "The number A113 appears in almost every Pixar film as an Easter egg. It's the classroom number where many animators studied at CalArts."
+                },
+                {
+                    "id": 3,
+                    "fact": "Psycho's Chocolate Syrup",
+                    "detail": "In Alfred Hitchcock's Psycho (1960), the famous shower scene used chocolate syrup as fake blood since it showed up better in black and white."
+                },
+                {
+                    "id": 4,
+                    "fact": "Jack and Rose's Breath",
+                    "detail": "In Titanic, the visible breath in the cold scenes was added digitally in post-production because filming took place in warm weather."
+                },
+                {
+                    "id": 5,
+                    "fact": "The Lion King's Stars",
+                    "detail": "The stars visible when Mufasa's ghost appears in The Lion King are actual astronomical star patterns."
+                },
+                {
+                    "id": 6,
+                    "fact": "Lord of the Rings Scale",
+                    "detail": "In Lord of the Rings, different sized props were used to make characters appear different heights, rather than relying solely on special effects."
+                },
+                {
+                    "id": 7,
+                    "fact": "Jurassic Park T-Rex",
+                    "detail": "The T-Rex roar in Jurassic Park was created by combining sounds from various animals, including a baby elephant's squeal and an alligator's growl."
+                },
+                {
+                    "id": 8,
+                    "fact": "Iron Man's Screens",
+                    "detail": "The scenes inside Iron Man's helmet were actually filmed after the movie was complete, when they realized they needed to make it more interesting."
+                },
+                {
+                    "id": 9,
+                    "fact": "Indiana Jones Gun Scene",
+                    "detail": "The famous scene where Indiana Jones shoots the swordsman was improvised because Harrison Ford was suffering from dysentery and couldn't film the planned fight."
+                },
+                {
+                    "id": 10,
+                    "fact": "The Wizard of Oz Set",
+                    "detail": "The original Tin Man makeup in The Wizard of Oz was so toxic it hospitalized the first actor cast in the role, forcing them to recast."
+                }
+            ]
+        };
+
+        // Initialize the display
+        const movieFactsDisplay = new MovieFactsDisplay(movieFactsData);
+        movieFactsDisplay.displayFacts();
+    </script>
+</body>
+</html>
